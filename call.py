@@ -22,7 +22,7 @@ def async_call(
     }
     response = client.create_task(request={"parent": queue, "task": task})
 
-    print("Created task {}".format(response.name))
+    print("INFO: Created task {}".format(response.name))
 
 
 def main():
@@ -37,7 +37,7 @@ def main():
 
     credentials, project_id = google.auth.default()
     if isinstance(credentials, google.oauth2.service_account.Credentials):
-        print("invoke using service account: " + credentials.service_account_email)
+        print("INFO: invoke using service account: " + credentials.service_account_email)
 
     client = tasks_v2.CloudTasksClient(credentials=credentials)
     async_call(
